@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-import { users } from "@prisma/client";
 import * as authRepository from "../repositories/authRepository.js";
 
+import { users } from "@prisma/client";
 export type TypeNewUser = Omit<users, "id">;
 
 export async function signUp(newUser: TypeNewUser) {
