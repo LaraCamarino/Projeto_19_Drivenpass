@@ -13,3 +13,21 @@ export async function insertNewSecureNote(newSecureNote: TypeNewSecureNotes) {
         data: newSecureNote
       })
 }
+
+export async function getUserSecureNotes(userId: number) {
+  return prisma.secureNotes.findMany({
+    where: { userId }
+  });
+}
+
+export async function findSecureNoteById(secureNoteId: number) {
+  return prisma.secureNotes.findFirst({
+    where: { id: secureNoteId }
+  });
+}
+
+export async function deleteSecureNote(secureNoteId: number) {
+  return prisma.secureNotes.delete({
+    where: { id: secureNoteId }
+  });
+}
