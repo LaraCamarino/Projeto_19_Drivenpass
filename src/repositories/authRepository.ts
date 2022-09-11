@@ -1,6 +1,6 @@
 import prisma from "../dbStrategy/database.js";
 
-import { TypeNewUser } from "../services/authService.js";
+import { TypeNewUser } from "../types/authTypes.js";
 
 export async function findUserById(id: number) {
   return prisma.users.findUnique({

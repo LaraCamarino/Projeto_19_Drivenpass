@@ -1,9 +1,8 @@
 import Cryptr from "cryptr";
 
 import * as credentialsRepository from "../repositories/credentialsRepository.js";
-
 import { credentials as ICredencial } from "@prisma/client";
-export type TypeNewCredential = Omit<ICredencial, "id">;
+import { TypeNewCredential } from "../types/credentialsTypes.js";
 
 const cryptr = new Cryptr(process.env.CRYPT_SECRET_KEY);
 

@@ -1,6 +1,6 @@
 import prisma from "../dbStrategy/database.js";
 
-import { TypeNewSecureNotes } from "../services/secureNotesService.js";
+import { TypeNewSecureNotes } from "../types/secureNotesTypes.js";
 
 export async function findSecureNoteByTitle(title: string, userId: number) {
     return prisma.secureNotes.findFirst({

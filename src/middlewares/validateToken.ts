@@ -5,10 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import * as authRepository from "../repositories/authRepository.js";
-
-interface IToken {
-    userId: number;
-}
+import { IToken } from "../types/authTypes.js";
 
 export default async function validateToken(req: Request, res: Response, next: NextFunction) {
     const { authorization } = req.headers;

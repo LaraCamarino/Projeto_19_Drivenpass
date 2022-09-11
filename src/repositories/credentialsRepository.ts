@@ -1,6 +1,6 @@
 import prisma from "../dbStrategy/database.js";
 
-import { TypeNewCredential } from "../services/credentialsService.js";
+import { TypeNewCredential } from "../types/credentialsTypes.js";
 
 export async function findCredentialByTitle(title: string, userId: number) {
   return prisma.credentials.findFirst({

@@ -1,9 +1,8 @@
 import Cryptr from "cryptr";
 
 import * as cardsRepository from "../repositories/cardsRepository.js";
-
 import { cards as ICards } from "@prisma/client";
-export type TypeNewCard = Omit<ICards, "id">;
+import { TypeNewCard } from "../types/cardsTypes.js";
 
 const cryptr = new Cryptr(process.env.CRYPT_SECRET_KEY);
 

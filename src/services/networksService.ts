@@ -1,9 +1,8 @@
 import Cryptr from "cryptr";
 
 import * as networksRepository from "../repositories/networksRepository.js";
-
 import { networks as INetworks } from "@prisma/client";
-export type TypeNewNetwork = Omit<INetworks, "id">;
+import { TypeNewNetwork } from "../types/networksTypes.js";
 
 const cryptr = new Cryptr(process.env.CRYPT_SECRET_KEY);
 

@@ -1,7 +1,6 @@
 import * as secureNotesRepository from "../repositories/secureNotesRepository.js";
-
 import { secureNotes as ISecureNotes } from "@prisma/client";
-export type TypeNewSecureNotes = Omit<ISecureNotes, "id">;
+import { TypeNewSecureNotes } from "../types/secureNotesTypes.js";
 
 export async function createSecureNote(newSecureNote: TypeNewSecureNotes) {
     const existingTitle = await secureNotesRepository.findSecureNoteByTitle(newSecureNote.title, newSecureNote.userId);

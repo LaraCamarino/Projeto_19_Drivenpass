@@ -5,9 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import * as authRepository from "../repositories/authRepository.js";
-
-import { users } from "@prisma/client";
-export type TypeNewUser = Omit<users, "id">;
+import { TypeNewUser } from "../types/authTypes.js";
 
 export async function signUp(newUser: TypeNewUser) {
     const encryptedPassword = bcrypt.hashSync(newUser.password, 10);

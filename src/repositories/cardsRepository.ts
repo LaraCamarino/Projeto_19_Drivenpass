@@ -1,6 +1,6 @@
 import prisma from "../dbStrategy/database.js";
 
-import { TypeNewCard } from "../services/cardsService.js";
+import { TypeNewCard } from "../types/cardsTypes.js";
 
 export async function findCardByTitle(title: string, userId: number) {
     return prisma.cards.findFirst({

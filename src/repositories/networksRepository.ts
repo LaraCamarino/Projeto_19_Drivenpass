@@ -1,6 +1,6 @@
 import prisma from "../dbStrategy/database.js";
 
-import { TypeNewNetwork } from "../services/networksService.js";
+import { TypeNewNetwork } from "../types/networksTypes.js";
 
 export async function insertNewNetwork(newNetwork: TypeNewNetwork) {
     return prisma.networks.create({
