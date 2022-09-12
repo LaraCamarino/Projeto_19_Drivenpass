@@ -22,6 +22,13 @@ export async function getSecureNoteById(req: Request, res: Response) {
     const { user } = res.locals;
     const { id } = req.params;
 
+    if(isNaN(Number(id))) {
+        throw {
+            type: "unprocessable_entity",
+            message: "The ID must be a number."
+        };
+    }
+
     const secureNote = await secureNotesService.getSecureNoteById(user.id, Number(id));
     
     res.status(200).send(secureNote);
@@ -30,6 +37,13 @@ export async function getSecureNoteById(req: Request, res: Response) {
 export async function deleteSecureNote(req: Request, res: Response) {
     const { user } = res.locals;
     const { id } = req.params;
+
+    if(isNaN(Number(id))) {
+        throw {
+            type: "unprocessable_entity",
+            message: "The ID must be a number."
+        };
+    }
 
     await secureNotesService.deleteSecureNote(user.id, Number(id));
 

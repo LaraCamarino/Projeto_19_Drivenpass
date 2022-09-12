@@ -25,6 +25,13 @@ export async function getCredentialById(req: Request, res: Response) {
     const { user } = res.locals;
     const { id } = req.params;
 
+    if(isNaN(Number(id))) {
+        throw {
+            type: "unprocessable_entity",
+            message: "The ID must be a number."
+        };
+    }
+
     const credential = await credentialsService.getCredentialById(user.id, Number(id));
 
     res.status(200).send(credential);
@@ -33,6 +40,13 @@ export async function getCredentialById(req: Request, res: Response) {
 export async function deleteCredential(req: Request, res: Response) {
     const { user } = res.locals;
     const { id } = req.params;
+
+    if(isNaN(Number(id))) {
+        throw {
+            type: "unprocessable_entity",
+            message: "The ID must be a number."
+        };
+    }
 
     await credentialsService.deleteCredential(user.id, Number(id));
 

@@ -23,6 +23,13 @@ export async function getNetworkById(req: Request, res: Response) {
     const { user } = res.locals;
     const { id } = req.params;
 
+    if(isNaN(Number(id))) {
+        throw {
+            type: "unprocessable_entity",
+            message: "The ID must be a number."
+        };
+    }
+
     const network = await networksService.getNetworkById(user.id, Number(id));
 
     res.status(200).send(network);
@@ -31,6 +38,13 @@ export async function getNetworkById(req: Request, res: Response) {
 export async function deleteNetwork(req: Request, res: Response) {
     const { user } = res.locals;
     const { id } = req.params;
+
+    if(isNaN(Number(id))) {
+        throw {
+            type: "unprocessable_entity",
+            message: "The ID must be a number."
+        };
+    }
 
     await networksService.deleteNetwork(user.id, Number(id));
 
